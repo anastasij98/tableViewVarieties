@@ -57,7 +57,7 @@ class RandomCellsViewController: UITableViewController {
             let model = FirstCustomCellModel(image: UIImage(named: "слиз"),
                                              name: "\(indexPath.row)")
             cell.setupCell(model: model)
-            
+            // New cool comment! As cool as Nastya!
             return cell
             
         } else if indexPath.row == 1 {
