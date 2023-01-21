@@ -12,17 +12,21 @@ class ThirdCustomCell: UITableViewCell {
     
     var switcher = UISwitch()
     var customLabel = UILabel()
+    var customButton = UIButton()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        self.addSubview(switcher)
+    
         self.addSubview(customLabel)
+        
         self.backgroundColor = .clear
         
+        
         createLabel()
-        labelConstraints()
-
+        createSwtcher()
+        createButton()
+        buttonsAction()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -32,9 +36,6 @@ class ThirdCustomCell: UITableViewCell {
     
     func createLabel() {
         customLabel.numberOfLines = 1
-    }
-    
-    func labelConstraints() {
         customLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             customLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
@@ -42,5 +43,55 @@ class ThirdCustomCell: UITableViewCell {
             customLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             customLabel.widthAnchor.constraint(equalToConstant: 60)
         ])
+        
+       customLabel.backgroundColor = .blue
+    }
+    
+    func createSwtcher() {
+        self.addSubview(switcher)
+        switcher.isOn = false
+//        switcher.setOn(false, animated: true)
+        switcher.addTarget(self, action: #selector(changeValue), for: .touchUpInside)
+        switcher.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            switcher.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
+            switcher.leadingAnchor.constraint(equalTo: customLabel.leadingAnchor, constant: 120)
+        ])
+    }
+ 
+    func createButton() {
+        self.addSubview(customButton)
+        customButton.setTitleColor(.blue, for: .normal)
+        
+        customButton.backgroundColor = .yellow
+        customButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            customButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
+            customButton.leadingAnchor.constraint(equalTo: switcher.leadingAnchor, constant: 120),
+            customButton.widthAnchor.constraint(equalToConstant: 130)
+        ])
+        
+    }
+    
+    func buttonsAction(){
+        customButton.addTarget(self, action: #selector(setColor), for: .touchUpInside)
+    }
+    
+    @objc
+    func setColor(_ sender: UIButton) {
+        if customLabel.backgroundColor == .blue {
+            customLabel.backgroundColor = .green
+        } else {
+            customLabel.backgroundColor = .blue
+        }
+        print("hi")
+    }
+    
+    @objc func changeValue(_ sender: UISwitch){
+        if self.backgroundColor == .white {
+            self.backgroundColor = .clear
+        } else {
+            self.backgroundColor = .white
+        }
     }
 }

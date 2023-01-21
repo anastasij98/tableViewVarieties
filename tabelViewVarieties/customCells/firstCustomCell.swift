@@ -30,7 +30,9 @@ class FirstCustomCell: UITableViewCell {
         configureNameLabel()
         setNameLabelConstraints()
         setImageConstraints()
-        nameLabel.textAlignment = .center
+        
+      
+        
     }
     
     required init?(coder: NSCoder) {
@@ -50,6 +52,8 @@ class FirstCustomCell: UITableViewCell {
     func configureNameLabel() {
         nameLabel.numberOfLines = 0
         nameLabel.adjustsFontSizeToFitWidth = true
+        nameLabel.textAlignment = .center
+        nameLabel.font = .italicSystemFont(ofSize: 15)
     }
 
     func setImageConstraints() {
@@ -57,7 +61,7 @@ class FirstCustomCell: UITableViewCell {
         NSLayoutConstraint.activate([
             customImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             customImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
-            customImageView.heightAnchor.constraint(equalToConstant: 50),
+            customImageView.heightAnchor.constraint(equalToConstant: 30),
             customImageView.widthAnchor.constraint(equalTo: customImageView.heightAnchor, multiplier: 16/9)
         ])
     }

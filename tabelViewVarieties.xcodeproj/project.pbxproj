@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		470F85FC2977185100478B1E /* thirdCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470F85FB2977185100478B1E /* thirdCustomCell.swift */; };
 		476D5FBB2976F33600D1AA72 /* secondCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476D5FBA2976F33600D1AA72 /* secondCustomCell.swift */; };
+		477B4B5629789C2000731DAD /* ImageCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B4B5529789C2000731DAD /* ImageCustomCell.swift */; };
+		477B4B58297B220F00731DAD /* LastCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B4B57297B220F00731DAD /* LastCustomCell.swift */; };
 		47834868296EDD25008B5490 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47834867296EDD25008B5490 /* AppDelegate.swift */; };
 		4783486A296EDD25008B5490 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47834869296EDD25008B5490 /* SceneDelegate.swift */; };
 		4783486C296EDD25008B5490 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4783486B296EDD25008B5490 /* ViewController.swift */; };
@@ -33,6 +35,8 @@
 /* Begin PBXFileReference section */
 		470F85FB2977185100478B1E /* thirdCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = thirdCustomCell.swift; sourceTree = "<group>"; };
 		476D5FBA2976F33600D1AA72 /* secondCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secondCustomCell.swift; sourceTree = "<group>"; };
+		477B4B5529789C2000731DAD /* ImageCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCustomCell.swift; sourceTree = "<group>"; };
+		477B4B57297B220F00731DAD /* LastCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastCustomCell.swift; sourceTree = "<group>"; };
 		47834864296EDD25008B5490 /* tabelViewVarieties.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tabelViewVarieties.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47834867296EDD25008B5490 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47834869296EDD25008B5490 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +136,8 @@
 				479E9E2029755E6F001D1983 /* firstCustomCell.swift */,
 				476D5FBA2976F33600D1AA72 /* secondCustomCell.swift */,
 				470F85FB2977185100478B1E /* thirdCustomCell.swift */,
+				477B4B5529789C2000731DAD /* ImageCustomCell.swift */,
+				477B4B57297B220F00731DAD /* LastCustomCell.swift */,
 			);
 			path = customCells;
 			sourceTree = "<group>";
@@ -210,8 +216,10 @@
 				478CB6BA2972B4C40037ED2B /* ProfileVC.swift in Sources */,
 				47834880296EF69D008B5490 /* HogwartsTableViewController.swift in Sources */,
 				47834882296EF8C0008B5490 /* WildBerriesTableViewController.swift in Sources */,
+				477B4B5629789C2000731DAD /* ImageCustomCell.swift in Sources */,
 				479E9E2129755E6F001D1983 /* firstCustomCell.swift in Sources */,
 				4783486C296EDD25008B5490 /* ViewController.swift in Sources */,
+				477B4B58297B220F00731DAD /* LastCustomCell.swift in Sources */,
 				47834868296EDD25008B5490 /* AppDelegate.swift in Sources */,
 				470F85FC2977185100478B1E /* thirdCustomCell.swift in Sources */,
 				478CB6B42971EC010037ED2B /* friendsStruct.swift in Sources */,

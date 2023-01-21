@@ -8,6 +8,12 @@
 import Foundation
 import UIKit
 
+struct SecondCustomCellModel{
+    var firatsImage: UIImage?
+    var secondImage: UIImage?
+    var label: String?
+}
+
 class SecondCustomCell: UITableViewCell{
     
     var firstCustomImage = UIImageView()
@@ -20,7 +26,7 @@ class SecondCustomCell: UITableViewCell{
         self.addSubview(customLabel)
         self.addSubview(firstCustomImage)
         self.addSubview(secondCustomImage)
-        self.backgroundColor = .clear
+        self.backgroundColor = .systemPink
         createLabel()
         createImage()
         setLabelConstraints()
@@ -31,6 +37,12 @@ class SecondCustomCell: UITableViewCell{
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setupCell(model: SecondCustomCellModel) {
+        firstCustomImage.image = model.firatsImage
+        secondCustomImage.image = model.secondImage
+        customLabel.text = model.label
     }
     
     func createImage() {
@@ -44,6 +56,7 @@ class SecondCustomCell: UITableViewCell{
     func createLabel() {
         customLabel.adjustsFontSizeToFitWidth = true
         customLabel.numberOfLines = 1
+        customLabel.backgroundColor = .yellow.withAlphaComponent(0.5)
     }
     
     
@@ -62,7 +75,8 @@ class SecondCustomCell: UITableViewCell{
         NSLayoutConstraint.activate([
             firstCustomImage.centerYAnchor.constraint(equalTo: centerYAnchor),
             firstCustomImage.leadingAnchor.constraint(equalTo: customLabel.trailingAnchor, constant: 12),
-            firstCustomImage.heightAnchor.constraint(equalToConstant: 50),
+            firstCustomImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            firstCustomImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             firstCustomImage.widthAnchor.constraint(equalTo: firstCustomImage.heightAnchor, multiplier: 16/9)
 
         ])

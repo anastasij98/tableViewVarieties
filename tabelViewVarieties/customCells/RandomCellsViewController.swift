@@ -9,101 +9,130 @@ import UIKit
 
 class RandomCellsViewController: UITableViewController {
 
-    var myTableView = UITableView()
+    
     var first = "firstCustomCell"
     var second = "secondCustomCell"
     var third = "thirdCustomCell"
+    var imageCell = "imageCell"
+    var lastCell = "lastCell"
     var identifier = "cell"
     var someView = UIView()
     var labeltext = UILabel()
     
+    var longGesture = UILongPressGestureRecognizer()
+    
     override func viewDidLoad() {
         createTable()
         
-    
+        longGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPress))
+        longGesture.minimumPressDuration = 1
+        self.tableView.addGestureRecognizer(longGesture)
+        
     }
+    
+    @objc func longPress(_ sender: UILongPressGestureRecognizer){
+        let alertC = UIAlertController(title: "Long Press", message: "You pressed on a cell for 1 second", preferredStyle: .alert)
+        let ok  = UIAlertAction(title: "Ok", style: .default)
+        alertC.addAction(ok)
+        self.present(alertC, animated: true, completion: nil)
+     
+    }
+    
     
     func createTable() {
+    
+        tableView.register(FirstCustomCell.self, forCellReuseIdentifier: first)
+        tableView.register(SecondCustomCell.self, forCellReuseIdentifier: second)
+        tableView.register(ThirdCustomCell.self, forCellReuseIdentifier: third)
+        tableView.register(ImageCustomCell.self, forCellReuseIdentifier: imageCell)
+        tableView.register(LastCustomCell.self, forCellReuseIdentifier: lastCell)
         
-        myTableView = UITableView(frame: view.bounds, style: .plain)
-        myTableView.register(UITableViewCell.self, forCellReuseIdentifier: identifier)
-        myTableView.register(FirstCustomCell.self, forCellReuseIdentifier: first)
-        myTableView.register(SecondCustomCell.self, forCellReuseIdentifier: second)
-        myTableView.register(ThirdCustomCell.self, forCellReuseIdentifier: third)
-        myTableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        myTableView.delegate = self
-        myTableView.dataSource = self
-        myTableView.backgroundColor = .lightGray
-        view.addSubview(myTableView)
+//        tableView.delegate = self
+//        tableView.dataSource = self
+        tableView.backgroundColor = .lightGray
     
     }
-
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        return 2
-//    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.row == 0 {
         
-            guard let cell = myTableView.dequeueReusableCell(withIdentifier: first, for: indexPath) as? FirstCustomCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: first, for: indexPath) as? FirstCustomCell else {
                 return UITableViewCell()
             }
       
             let model = FirstCustomCellModel(image: UIImage(named: "слиз"),
-                                             name: "\(indexPath.row)")
+                                             name: "this is the \((indexPath.row) + 1) cell in tabelView")
             cell.setupCell(model: model)
-            // New cool comment! As cool as Nastya!
+            
             return cell
             
         } else if indexPath.row == 1 {
             
-            let cell = myTableView.dequeueReusableCell(withIdentifier: second, for: indexPath) as! SecondCustomCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: second, for: indexPath) as! SecondCustomCell
+            let model = SecondCustomCellModel(firatsImage: UIImage(named: "грифф"),
+                                              secondImage: UIImage(named: "ког"),
+                                              label: "\(indexPath.row)")
             
-            cell.customLabel.text = "\(indexPath.row)"
-            cell.customLabel.backgroundColor = .yellow.withAlphaComponent(0.5)
-            cell.firstCustomImage.image = UIImage(named: "грифф")
-            cell.secondCustomImage.image = UIImage(named: "ког")
-//            cell.customButton.layer.cornerRadius = 10
-//            cell.customButton.layer.cornerCurve = .circular
+            cell.setupCell(model: model)
     
             return cell
             
+        } else if indexPath.row == 2 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: third, for: indexPath) as! ThirdCustomCell
+            
+            cell.customLabel.text = "\((indexPath.row) + 1)"
+            cell.customButton.setTitle("some text", for: .normal)
+
+            return cell
+            
+//        } else if indexPath.row == 3 {
+//            let cell = tableView.dequeueReusableCell(withIdentifier: imageCell, for: indexPath) as! ImageCustomCell
+//            cell.backgroundImage.image = UIImage(named: "ког")
+//
+//            return cell
         } else {
-            let cell = myTableView.dequeueReusableCell(withIdentifier: second, for: indexPath) as! SecondCustomCell
             
-            cell.customLabel.text = "\(indexPath.row)"
-            cell.customLabel.backgroundColor = .blue.withAlphaComponent(0.5)
+            let cell = tableView.dequeueReusableCell(withIdentifier: lastCell, for: indexPath) as! LastCustomCell
             
+            cell.productImage.image = UIImage(named: "coke")
+            cell.nameLabel.text = "coca cola"
             return cell
         }
-        
-//        cell.contentView.addSubview(labeltext)
-//
-//        labeltext.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            labeltext.topAnchor.constraint(equalTo: cell.contentView.topAnchor, constant: 10),
-//            labeltext.bottomAnchor.constraint(equalTo: cell.contentView.bottomAnchor, constant: -10),
-//            labeltext.trailingAnchor.constraint(equalTo: cell.contentView.trailingAnchor, constant: -10),
-//            labeltext.leadingAnchor.constraint(equalTo: cell.contentView.leadingAnchor, constant: 10)
-//        ])
-//
-//        labeltext.backgroundColor = .green
-        
-//        cell.contentView.layer.borderWidth = 5
-//        cell.contentView.layer.borderColor = .init(red: 100, green: 100, blue: 100, alpha: 1)
     }
     
-    
+
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return UITableView.automaticDimension
     }
     
+    //buttons in swipe
+        override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let edit = UIContextualAction(style: .normal, title: "Edit") { _, _, _ in
+            print("edit tapped")
+            
+        }
+        
+        let delete = UIContextualAction(style: .destructive, title: "Delete") { _, _, _ in
+            print("delete tapped")
+        }
+            
+        let swipeConfiguration = UISwipeActionsConfiguration(actions: [delete, edit])
+        return swipeConfiguration
+    }
     
-    
+        override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let add = UIContextualAction(style: .normal, title: "Add") { _, _, _ in
+            print("Add tapped")
+        }
+        add.backgroundColor = .systemGreen
+        let swipeConfiguration = UISwipeActionsConfiguration(actions: [add])
+        return swipeConfiguration
+    }
 }
+
 
