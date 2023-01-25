@@ -18,7 +18,7 @@ class ProfileVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        view.backgroundColor = .white.withAlphaComponent(0.5)
+        view.backgroundColor = .white.withAlphaComponent(0.5)
         view.addSubview(myBack)
         view.addSubview(stack)
 

@@ -7,8 +7,9 @@
 
 import Foundation
 import UIKit
+import SnapKit
 
-class LastCustomCell: UITableViewCell{
+class LastCustomCell: UITableViewCell {
     
     var productImage = UIImageView()
     var nameLabel = UILabel()
@@ -18,17 +19,15 @@ class LastCustomCell: UITableViewCell{
     var customStepper = UIStepper()
     var numberOfProduct = 0
   
-    
-
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        self.addSubview(productImage)
-        self.addSubview(nameLabel)
-        self.addSubview(quantityLabel)
+//        self.addSubview(productImage)
+//        self.addSubview(nameLabel)
+//        self.addSubview(quantityLabel)
+//        self.contentView.addSubview(customStepper)
         
-        self.addSubview(customStepper)
+        contentView.addSubviews(productImage, nameLabel, quantityLabel, customStepper)
         
         createProductImage()
         createNameLabel()
@@ -70,7 +69,7 @@ class LastCustomCell: UITableViewCell{
     }
     
     func createMinusButton(){
-        addSubview(minusButton)
+        contentView.addSubview(minusButton)
         minusButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             minusButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
@@ -101,7 +100,7 @@ class LastCustomCell: UITableViewCell{
     }
     
     func createPlusButton(){
-        addSubview(plusButton)
+        contentView.addSubview(plusButton)
         plusButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             plusButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
@@ -135,12 +134,18 @@ class LastCustomCell: UITableViewCell{
     
     func createStepper() {
         print("fxkc")
-        customStepper.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            customStepper.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
-            customStepper.leadingAnchor.constraint(equalTo: quantityLabel.trailingAnchor, constant: 2),
-            customStepper.widthAnchor.constraint(equalToConstant: 50)
-        ])
+//        customStepper.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([
+//            customStepper.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
+//            customStepper.leadingAnchor.constraint(equalTo: quantityLabel.trailingAnchor, constant: 2),
+//            customStepper.widthAnchor.constraint(equalToConstant: 50)
+//        ])
+        customStepper.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(5)
+            make.leading.equalTo(quantityLabel.snp.trailing).offset(2)
+            make.width.equalTo(100)
+        }
+        
         
         customStepper.minimumValue = 0.0
         customStepper.maximumValue = 10.0

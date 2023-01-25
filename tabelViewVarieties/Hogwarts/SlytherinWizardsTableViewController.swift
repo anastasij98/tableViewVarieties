@@ -9,7 +9,6 @@ import UIKit
 
 class SlytherinWizardsTableViewController: UITableViewController {
     
-    var myTableView = UITableView()
     var identifier = "cell"
     var wizardsS: [Wizards] = [Wizards]()
     
@@ -17,7 +16,7 @@ class SlytherinWizardsTableViewController: UITableViewController {
         super.viewDidLoad()
         
         super.tableView.backgroundView = UIImageView(image: UIImage(named: "слиз"))
-        super.tableView.backgroundView?.alpha = 0.5
+        super.tableView.backgroundView?.alpha = 0.8
         super.tableView.backgroundView?.contentMode = .scaleAspectFill
         
         creatTable()
@@ -30,14 +29,12 @@ class SlytherinWizardsTableViewController: UITableViewController {
 
     // MARK: - Table view data source
     
-    func creatTable(){
-        myTableView.register(UITableViewCell.self, forCellReuseIdentifier: identifier)
-        myTableView.delegate = self
-        myTableView.dataSource = self
-        myTableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        myTableView.backgroundColor = .clear
-        
-        view.addSubview(myTableView)
+    func creatTable() {
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: identifier)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        tableView.backgroundColor = .clear
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,7 +43,7 @@ class SlytherinWizardsTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = myTableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         let name = wizardsS[indexPath.row].name
         var customCell = cell.defaultContentConfiguration()
         customCell.text = name

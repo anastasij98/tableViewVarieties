@@ -8,7 +8,7 @@
 import UIKit
 
 class HufflepuffTableVC: UITableViewController {
-    var myTableView = UITableView()
+    
     var identifier = "cell"
     var wizardsH: [Wizards] = [Wizards]()
 
@@ -26,16 +26,11 @@ class HufflepuffTableVC: UITableViewController {
     // MARK: - Table view data source
     
     func createTable() {
-        view.addSubview(myTableView)
-        
-        myTableView.register(UITableViewCell.self, forCellReuseIdentifier: identifier)
-        myTableView.dataSource = self
-        myTableView.delegate = self
-        myTableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        myTableView.backgroundColor = .clear
-//        myTableView.backgroundView = UIImageView(image: UIImage(named: "пуфф"))
-//        myTableView.backgroundView?.alpha = 0.5
-//        tableView.backgroundView?.contentMode = .scaleAspectFill
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: identifier)
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        tableView.backgroundColor = .clear
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -43,7 +38,7 @@ class HufflepuffTableVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = myTableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         var content = cell.defaultContentConfiguration()
         content.text = wizardsH[indexPath.row].name
         cell.contentConfiguration = content

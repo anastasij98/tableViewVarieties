@@ -8,8 +8,7 @@
 import UIKit
 
 class RavenclawTableVC: UITableViewController {
-    
-    var myTableView = UITableView()
+
     var identifier = "cell"
     var wizardsR: [Wizards] = [Wizards]()
     
@@ -17,7 +16,7 @@ class RavenclawTableVC: UITableViewController {
         super.viewDidLoad()
         
         super.tableView.backgroundView = UIImageView(image: UIImage(named: "ког"))
-        super.tableView.backgroundView?.alpha = 0.5
+        super.tableView.backgroundView?.alpha = 0.8
         super.tableView.backgroundView?.contentMode = .scaleAspectFill
         
         createTable()
@@ -28,14 +27,12 @@ class RavenclawTableVC: UITableViewController {
     }
 
     // MARK: - Table view data source
-    func createTable(){
-        myTableView.register(UITableViewCell.self, forCellReuseIdentifier: identifier)
-        myTableView.delegate = self
-        myTableView.dataSource = self
-        myTableView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        myTableView.backgroundColor = .clear
-        
-        view.addSubview(myTableView)
+    func createTable() {
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: identifier)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        tableView.backgroundColor = .clear
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -44,7 +41,7 @@ class RavenclawTableVC: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = myTableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         var custom = cell.defaultContentConfiguration()
         custom.text = wizardsR[indexPath.row].name
         cell.contentConfiguration = custom

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		470F85FC2977185100478B1E /* thirdCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470F85FB2977185100478B1E /* thirdCustomCell.swift */; };
 		476D5FBB2976F33600D1AA72 /* secondCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476D5FBA2976F33600D1AA72 /* secondCustomCell.swift */; };
+		476D9EE1297CAD480036C949 /* AddSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476D9EE0297CAD480036C949 /* AddSubviews.swift */; };
+		476D9EE3297CB0AC0036C949 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476D9EE2297CB0AC0036C949 /* ImageCell.swift */; };
 		477B4B5629789C2000731DAD /* ImageCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B4B5529789C2000731DAD /* ImageCustomCell.swift */; };
 		477B4B58297B220F00731DAD /* LastCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B4B57297B220F00731DAD /* LastCustomCell.swift */; };
 		47834868296EDD25008B5490 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47834867296EDD25008B5490 /* AppDelegate.swift */; };
@@ -21,6 +23,7 @@
 		4783487E296EF60B008B5490 /* PhoneBookTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4783487D296EF60B008B5490 /* PhoneBookTableViewController.swift */; };
 		47834880296EF69D008B5490 /* HogwartsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4783487F296EF69D008B5490 /* HogwartsTableViewController.swift */; };
 		47834882296EF8C0008B5490 /* WildBerriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47834881296EF8C0008B5490 /* WildBerriesTableViewController.swift */; };
+		47895606297D9D1900435913 /* ExampleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47895605297D9D1900435913 /* ExampleVC.swift */; };
 		478CB6B42971EC010037ED2B /* friendsStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478CB6B32971EC010037ED2B /* friendsStruct.swift */; };
 		478CB6B62972B0B00037ED2B /* WizardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478CB6B52972B0B00037ED2B /* WizardsViewController.swift */; };
 		478CB6B82972B11F0037ED2B /* wizards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478CB6B72972B11F0037ED2B /* wizards.swift */; };
@@ -30,11 +33,15 @@
 		478CB6C22972D3B10037ED2B /* HufflepuffTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478CB6C12972D3B10037ED2B /* HufflepuffTableVC.swift */; };
 		479E9E2129755E6F001D1983 /* firstCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479E9E2029755E6F001D1983 /* firstCustomCell.swift */; };
 		47D398F82971C8360065B779 /* RandomCellsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D398F72971C8360065B779 /* RandomCellsViewController.swift */; };
+		BBEB0BD5B2E40266AE2342C4 /* Pods_tabelViewVarieties.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D4F8473643096C7963257FD /* Pods_tabelViewVarieties.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2DE25F64C5A199138B75A41A /* Pods-tabelViewVarieties.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tabelViewVarieties.release.xcconfig"; path = "Target Support Files/Pods-tabelViewVarieties/Pods-tabelViewVarieties.release.xcconfig"; sourceTree = "<group>"; };
 		470F85FB2977185100478B1E /* thirdCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = thirdCustomCell.swift; sourceTree = "<group>"; };
 		476D5FBA2976F33600D1AA72 /* secondCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secondCustomCell.swift; sourceTree = "<group>"; };
+		476D9EE0297CAD480036C949 /* AddSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubviews.swift; sourceTree = "<group>"; };
+		476D9EE2297CB0AC0036C949 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		477B4B5529789C2000731DAD /* ImageCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCustomCell.swift; sourceTree = "<group>"; };
 		477B4B57297B220F00731DAD /* LastCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastCustomCell.swift; sourceTree = "<group>"; };
 		47834864296EDD25008B5490 /* tabelViewVarieties.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tabelViewVarieties.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +56,7 @@
 		4783487D296EF60B008B5490 /* PhoneBookTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneBookTableViewController.swift; sourceTree = "<group>"; };
 		4783487F296EF69D008B5490 /* HogwartsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HogwartsTableViewController.swift; sourceTree = "<group>"; };
 		47834881296EF8C0008B5490 /* WildBerriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WildBerriesTableViewController.swift; sourceTree = "<group>"; };
+		47895605297D9D1900435913 /* ExampleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleVC.swift; sourceTree = "<group>"; };
 		478CB6B32971EC010037ED2B /* friendsStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = friendsStruct.swift; sourceTree = "<group>"; };
 		478CB6B52972B0B00037ED2B /* WizardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardsViewController.swift; sourceTree = "<group>"; };
 		478CB6B72972B11F0037ED2B /* wizards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wizards.swift; sourceTree = "<group>"; };
@@ -58,6 +66,8 @@
 		478CB6C12972D3B10037ED2B /* HufflepuffTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HufflepuffTableVC.swift; sourceTree = "<group>"; };
 		479E9E2029755E6F001D1983 /* firstCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = firstCustomCell.swift; sourceTree = "<group>"; };
 		47D398F72971C8360065B779 /* RandomCellsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomCellsViewController.swift; sourceTree = "<group>"; };
+		4D4F8473643096C7963257FD /* Pods_tabelViewVarieties.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tabelViewVarieties.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A57001E05CE6F48DD4A95FFB /* Pods-tabelViewVarieties.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tabelViewVarieties.debug.xcconfig"; path = "Target Support Files/Pods-tabelViewVarieties/Pods-tabelViewVarieties.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,17 +75,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBEB0BD5B2E40266AE2342C4 /* Pods_tabelViewVarieties.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		476D9EDF297CAD140036C949 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				476D9EE0297CAD480036C949 /* AddSubviews.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		4783485B296EDD25008B5490 = {
 			isa = PBXGroup;
 			children = (
 				47834866296EDD25008B5490 /* tabelViewVarieties */,
 				47834865296EDD25008B5490 /* Products */,
+				90FDC97D77E81088D1A4D3A1 /* Pods */,
+				E63A8CA0B079DA0D44352868 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,6 +113,7 @@
 			children = (
 				47834867296EDD25008B5490 /* AppDelegate.swift */,
 				47834869296EDD25008B5490 /* SceneDelegate.swift */,
+				476D9EDF297CAD140036C949 /* Util */,
 				4783486B296EDD25008B5490 /* ViewController.swift */,
 				4783487B296EEAB5008B5490 /* LanguageViewController.swift */,
 				478CB6BC2972BEC10037ED2B /* Friends */,
@@ -136,10 +158,29 @@
 				479E9E2029755E6F001D1983 /* firstCustomCell.swift */,
 				476D5FBA2976F33600D1AA72 /* secondCustomCell.swift */,
 				470F85FB2977185100478B1E /* thirdCustomCell.swift */,
+				47895605297D9D1900435913 /* ExampleVC.swift */,
 				477B4B5529789C2000731DAD /* ImageCustomCell.swift */,
 				477B4B57297B220F00731DAD /* LastCustomCell.swift */,
+				476D9EE2297CB0AC0036C949 /* ImageCell.swift */,
 			);
 			path = customCells;
+			sourceTree = "<group>";
+		};
+		90FDC97D77E81088D1A4D3A1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A57001E05CE6F48DD4A95FFB /* Pods-tabelViewVarieties.debug.xcconfig */,
+				2DE25F64C5A199138B75A41A /* Pods-tabelViewVarieties.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E63A8CA0B079DA0D44352868 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4D4F8473643096C7963257FD /* Pods_tabelViewVarieties.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,9 +190,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 47834878296EDD26008B5490 /* Build configuration list for PBXNativeTarget "tabelViewVarieties" */;
 			buildPhases = (
+				769301CEDC4DD347AD6666A1 /* [CP] Check Pods Manifest.lock */,
 				47834860296EDD25008B5490 /* Sources */,
 				47834861296EDD25008B5490 /* Frameworks */,
 				47834862296EDD25008B5490 /* Resources */,
+				8AE46127E732A46A4E8F6587 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -208,6 +251,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		769301CEDC4DD347AD6666A1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-tabelViewVarieties-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8AE46127E732A46A4E8F6587 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-tabelViewVarieties/Pods-tabelViewVarieties-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-tabelViewVarieties/Pods-tabelViewVarieties-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-tabelViewVarieties/Pods-tabelViewVarieties-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		47834860296EDD25008B5490 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -219,12 +304,15 @@
 				477B4B5629789C2000731DAD /* ImageCustomCell.swift in Sources */,
 				479E9E2129755E6F001D1983 /* firstCustomCell.swift in Sources */,
 				4783486C296EDD25008B5490 /* ViewController.swift in Sources */,
+				476D9EE1297CAD480036C949 /* AddSubviews.swift in Sources */,
 				477B4B58297B220F00731DAD /* LastCustomCell.swift in Sources */,
 				47834868296EDD25008B5490 /* AppDelegate.swift in Sources */,
 				470F85FC2977185100478B1E /* thirdCustomCell.swift in Sources */,
+				47895606297D9D1900435913 /* ExampleVC.swift in Sources */,
 				478CB6B42971EC010037ED2B /* friendsStruct.swift in Sources */,
 				478CB6BE2972CA240037ED2B /* SlytherinWizardsTableViewController.swift in Sources */,
 				4783487E296EF60B008B5490 /* PhoneBookTableViewController.swift in Sources */,
+				476D9EE3297CB0AC0036C949 /* ImageCell.swift in Sources */,
 				47D398F82971C8360065B779 /* RandomCellsViewController.swift in Sources */,
 				478CB6C02972D39D0037ED2B /* RavenclawTableVC.swift in Sources */,
 				478CB6B62972B0B00037ED2B /* WizardsViewController.swift in Sources */,
@@ -374,6 +462,7 @@
 		};
 		47834879296EDD26008B5490 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A57001E05CE6F48DD4A95FFB /* Pods-tabelViewVarieties.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -402,6 +491,7 @@
 		};
 		4783487A296EDD26008B5490 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2DE25F64C5A199138B75A41A /* Pods-tabelViewVarieties.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

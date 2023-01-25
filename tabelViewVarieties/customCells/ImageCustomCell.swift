@@ -14,7 +14,7 @@ class ImageCustomCell: UITableViewCell{
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.addSubview(backgroundImage)
+        self.contentView.addSubview(backgroundImage)
         createBackground()
         self.backgroundColor = .clear
         self.layer.borderColor = CGColor.init(red: 0, green: 80, blue: 50, alpha: 1)

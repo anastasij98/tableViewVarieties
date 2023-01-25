@@ -15,6 +15,7 @@ class RandomCellsViewController: UITableViewController {
     var third = "thirdCustomCell"
     var imageCell = "imageCell"
     var lastCell = "lastCell"
+    var imgCell = "imgCell"
     var identifier = "cell"
     var someView = UIView()
     var labeltext = UILabel()
@@ -46,6 +47,7 @@ class RandomCellsViewController: UITableViewController {
         tableView.register(ThirdCustomCell.self, forCellReuseIdentifier: third)
         tableView.register(ImageCustomCell.self, forCellReuseIdentifier: imageCell)
         tableView.register(LastCustomCell.self, forCellReuseIdentifier: lastCell)
+        tableView.register(ImageCell.self, forCellReuseIdentifier: imgCell)
         
 //        tableView.delegate = self
 //        tableView.dataSource = self
@@ -54,7 +56,7 @@ class RandomCellsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 6
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -90,17 +92,22 @@ class RandomCellsViewController: UITableViewController {
 
             return cell
             
-//        } else if indexPath.row == 3 {
-//            let cell = tableView.dequeueReusableCell(withIdentifier: imageCell, for: indexPath) as! ImageCustomCell
-//            cell.backgroundImage.image = UIImage(named: "ког")
-//
-//            return cell
-        } else {
+        } else if indexPath.row == 3 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: imageCell, for: indexPath) as! ImageCustomCell
+            cell.backgroundImage.image = UIImage(named: "ког")
+
+            return cell
+        } else if indexPath.row == 4 {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: lastCell, for: indexPath) as! LastCustomCell
             
             cell.productImage.image = UIImage(named: "coke")
             cell.nameLabel.text = "coca cola"
+            return cell
+        } else {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: imgCell, for: indexPath) as! ImageCell
+            
             return cell
         }
     }

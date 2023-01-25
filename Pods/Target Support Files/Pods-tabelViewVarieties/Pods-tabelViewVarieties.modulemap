@@ -1,0 +1,6 @@
+framework module Pods_tabelViewVarieties {
+  umbrella header "Pods-tabelViewVarieties-umbrella.h"
+
+  export *
+  module * { export * }
+}

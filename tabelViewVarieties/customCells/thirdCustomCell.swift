@@ -16,9 +16,8 @@ class ThirdCustomCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-    
-        self.addSubview(customLabel)
         
+        self.contentView.addSubview(customLabel)
         self.backgroundColor = .clear
         
         
@@ -48,7 +47,7 @@ class ThirdCustomCell: UITableViewCell {
     }
     
     func createSwtcher() {
-        self.addSubview(switcher)
+        contentView.addSubview(switcher)
         switcher.isOn = false
 //        switcher.setOn(false, animated: true)
         switcher.addTarget(self, action: #selector(changeValue), for: .touchUpInside)
@@ -60,7 +59,7 @@ class ThirdCustomCell: UITableViewCell {
     }
  
     func createButton() {
-        self.addSubview(customButton)
+        contentView.addSubview(customButton)
         customButton.setTitleColor(.blue, for: .normal)
         
         customButton.backgroundColor = .yellow
@@ -85,6 +84,12 @@ class ThirdCustomCell: UITableViewCell {
             customLabel.backgroundColor = .blue
         }
         print("hi")
+        
+        
+        let parent = RandomCellsViewController()
+        let nextVC = ExampleVC ()
+//        parent.navigationController?.pushViewController(nextVC, animated: true)
+        parent.present(nextVC, animated: true)
     }
     
     @objc func changeValue(_ sender: UISwitch){
@@ -94,4 +99,5 @@ class ThirdCustomCell: UITableViewCell {
             self.backgroundColor = .white
         }
     }
+    
 }

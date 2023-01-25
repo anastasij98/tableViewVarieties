@@ -23,9 +23,9 @@ class SecondCustomCell: UITableViewCell{
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        self.addSubview(customLabel)
-        self.addSubview(firstCustomImage)
-        self.addSubview(secondCustomImage)
+        self.contentView.addSubview(customLabel)
+        self.contentView.addSubview(firstCustomImage)
+        self.contentView.addSubview(secondCustomImage)
         self.backgroundColor = .systemPink
         createLabel()
         createImage()
@@ -73,10 +73,10 @@ class SecondCustomCell: UITableViewCell{
     func setFirstImageConstraints() {
         firstCustomImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            firstCustomImage.centerYAnchor.constraint(equalTo: centerYAnchor),
+//            firstCustomImage.centerYAnchor.constraint(equalTo: centerYAnchor),
             firstCustomImage.leadingAnchor.constraint(equalTo: customLabel.trailingAnchor, constant: 12),
-            firstCustomImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            firstCustomImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            firstCustomImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
+            firstCustomImage.heightAnchor.constraint(equalToConstant: 20),
             firstCustomImage.widthAnchor.constraint(equalTo: firstCustomImage.heightAnchor, multiplier: 16/9)
 
         ])
@@ -87,6 +87,7 @@ class SecondCustomCell: UITableViewCell{
         NSLayoutConstraint.activate([
             secondCustomImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
             secondCustomImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
+            secondCustomImage.heightAnchor.constraint(equalToConstant: 20),
             secondCustomImage.leadingAnchor.constraint(equalTo: firstCustomImage.trailingAnchor, constant: 10),
             secondCustomImage.widthAnchor.constraint(equalToConstant: 30)
         ])

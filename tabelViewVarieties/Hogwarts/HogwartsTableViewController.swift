@@ -9,12 +9,13 @@ import UIKit
 
 class HogwartsTableViewController: UITableViewController {
     
-    var myTableView = UITableView()
+    
     var identifier = "cell"
     var hH = [("Gryffindor","Minerva McGonagall", UIImage(named: "гриффиндор")),
               ("Slytherin","Severus Snape", UIImage(named: "слизерин")),
               ("Ravenclaw", "Filius Flitwick", UIImage(named: "когтевран")),
-              ("Hufflepuff","Pomona Sprout", UIImage(named: "пуффендуй"))]
+              ("Hufflepuff","Pomona Sprout", UIImage(named: "пуффендуй"))
+    ]
     var vC = [WizardsViewController.self, SlytherinWizardsTableViewController.self,  RavenclawTableVC.self, HufflepuffTableVC.self]
     
     override func viewDidLoad() {
@@ -22,7 +23,7 @@ class HogwartsTableViewController: UITableViewController {
 
         navigationItem.title = "Houses"
         super.tableView.backgroundView = UIImageView(image: UIImage(named: "фон"))
-        super.tableView.backgroundView?.alpha = 0.5
+        super.tableView.backgroundView?.alpha = 0.8
         super.tableView.backgroundView?.contentMode = .scaleAspectFill
         creatTable()
        
@@ -30,23 +31,21 @@ class HogwartsTableViewController: UITableViewController {
 
     
     func creatTable() {
-        myTableView = UITableView(frame: view.bounds, style: .plain)
-        myTableView.register(UITableViewCell.self, forCellReuseIdentifier: identifier)
-        myTableView.dataSource = self
-        myTableView.delegate = self
-        myTableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        myTableView.backgroundColor = .clear
         
-        
-        view.addSubview(myTableView)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: identifier)
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        tableView.backgroundColor = .clear
+       
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return hH.count
+        return hH.count 
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = myTableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         let name = hH[indexPath.row].0
         let subTitle = hH[indexPath.row].1
         let icon = hH[indexPath.row].2
@@ -65,15 +64,10 @@ class HogwartsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70.0
     }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let wizardVC = WizardsViewController()
-//        let wizardsSVC = SlytherinWizardsTableViewController()
-//
-//        navigationController?.pushViewController(wizardVC, animated: true)
-        
         let cell = vC[indexPath.row].init()
         navigationController?.pushViewController(cell, animated: true)
-      
     }
     
 
