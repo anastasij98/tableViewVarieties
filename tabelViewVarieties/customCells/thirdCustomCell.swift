@@ -8,7 +8,13 @@
 import Foundation
 import UIKit
 
+struct ThirdCustomCellModel {
+    var customLabelStr: String?
+}
+
 class ThirdCustomCell: UITableViewCell {
+    
+    weak var delegate: CustomCellDelegate?
     
     var switcher = UISwitch()
     var customLabel = UILabel()
@@ -20,79 +26,64 @@ class ThirdCustomCell: UITableViewCell {
         self.contentView.addSubview(customLabel)
         self.backgroundColor = .clear
         
-        
         createLabel()
         createSwtcher()
         createButton()
-        buttonsAction()
-        
+    
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setupCell(model: ThirdCustomCellModel){
+        customLabel.text = model.customLabelStr
+       
+    }
     
     func createLabel() {
+        customLabel.backgroundColor = .blue
         customLabel.numberOfLines = 1
-        customLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            customLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            customLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
-            customLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            customLabel.widthAnchor.constraint(equalToConstant: 60)
-        ])
-        
-       customLabel.backgroundColor = .blue
+        customLabel.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview().inset(10)
+            make.leading.equalToSuperview()
+            make.width.equalTo(100)
+        }
     }
     
     func createSwtcher() {
         contentView.addSubview(switcher)
         switcher.isOn = false
-//        switcher.setOn(false, animated: true)
         switcher.addTarget(self, action: #selector(changeValue), for: .touchUpInside)
-        switcher.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            switcher.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
-            switcher.leadingAnchor.constraint(equalTo: customLabel.leadingAnchor, constant: 120)
-        ])
+        switcher.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(5)
+            make.leading.equalTo(customLabel.snp.leading).offset(120)
+        }
     }
  
     func createButton() {
         contentView.addSubview(customButton)
+        
         customButton.setTitleColor(.blue, for: .normal)
-        
+        customButton.setTitle("some text", for: .normal)
         customButton.backgroundColor = .yellow
-        customButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            customButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
-            customButton.leadingAnchor.constraint(equalTo: switcher.leadingAnchor, constant: 120),
-            customButton.widthAnchor.constraint(equalToConstant: 130)
-        ])
+        customButton.addTarget(self, action: #selector(goToVC), for: .touchUpInside)
         
-    }
-    
-    func buttonsAction(){
-        customButton.addTarget(self, action: #selector(setColor), for: .touchUpInside)
+        customButton.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(5)
+            make.leading.equalTo(switcher.snp.leading).offset(120)
+            make.width.equalTo(130)
+        }
+        
     }
     
     @objc
-    func setColor(_ sender: UIButton) {
-        if customLabel.backgroundColor == .blue {
-            customLabel.backgroundColor = .green
-        } else {
-            customLabel.backgroundColor = .blue
-        }
-        print("hi")
-        
-        
-        let parent = RandomCellsViewController()
-        let nextVC = ExampleVC ()
-//        parent.navigationController?.pushViewController(nextVC, animated: true)
-        parent.present(nextVC, animated: true)
+    func goToVC(_ sender: UIButton) {
+        delegate?.onCellButtonTouched()
     }
     
-    @objc func changeValue(_ sender: UISwitch){
+    @objc
+    func changeValue(_ sender: UISwitch) {
         if self.backgroundColor == .white {
             self.backgroundColor = .clear
         } else {

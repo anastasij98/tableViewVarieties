@@ -22,11 +22,10 @@ class SecondCustomCell: UITableViewCell{
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+       
+        contentView.addSubviews(customLabel, firstCustomImage, secondCustomImage)
+        contentView.backgroundColor = .systemPink
         
-        self.contentView.addSubview(customLabel)
-        self.contentView.addSubview(firstCustomImage)
-        self.contentView.addSubview(secondCustomImage)
-        self.backgroundColor = .systemPink
         createLabel()
         createImage()
         setLabelConstraints()
@@ -50,7 +49,8 @@ class SecondCustomCell: UITableViewCell{
         firstCustomImage.clipsToBounds = true
         
         secondCustomImage.clipsToBounds = true
-        secondCustomImage.layer.cornerCurve = .circular
+    
+        secondCustomImage.layer.cornerCurve = .continuous
     }
     
     func createLabel() {
@@ -61,36 +61,28 @@ class SecondCustomCell: UITableViewCell{
     
     
     func setLabelConstraints() {
-        customLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            customLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            customLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
-            customLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            customLabel.widthAnchor.constraint(equalToConstant: 60)
-        ])
+        customLabel.snp.makeConstraints { make in
+            make.top.bottom.equalTo(contentView).inset(10)
+            make.leading.equalTo(contentView.snp.leading)
+            make.width.equalTo(60)
+        }
     }
     
     func setFirstImageConstraints() {
-        firstCustomImage.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-//            firstCustomImage.centerYAnchor.constraint(equalTo: centerYAnchor),
-            firstCustomImage.leadingAnchor.constraint(equalTo: customLabel.trailingAnchor, constant: 12),
-            firstCustomImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
-            firstCustomImage.heightAnchor.constraint(equalToConstant: 20),
-            firstCustomImage.widthAnchor.constraint(equalTo: firstCustomImage.heightAnchor, multiplier: 16/9)
-
-        ])
+        firstCustomImage.snp.makeConstraints { make in
+            make.leading.equalTo(customLabel.snp.trailing).offset(12)
+            make.centerY.equalToSuperview()
+            make.height.equalTo(20)
+            make.width.equalTo(firstCustomImage.snp.height).multipliedBy(16/9)
+        }
     }
     
     func setSecondImageConstraints() {
-        secondCustomImage.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            secondCustomImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
-            secondCustomImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
-            secondCustomImage.heightAnchor.constraint(equalToConstant: 20),
-            secondCustomImage.leadingAnchor.constraint(equalTo: firstCustomImage.trailingAnchor, constant: 10),
-            secondCustomImage.widthAnchor.constraint(equalToConstant: 30)
-        ])
-        
+        secondCustomImage.snp.makeConstraints { make in
+            make.leading.equalTo(firstCustomImage.snp.trailing).offset(10)
+            make.top.bottom.equalTo(contentView).inset(5)
+            make.height.equalTo(50)
+            make.width.equalTo(30)
+        }
     }
 }

@@ -21,18 +21,15 @@ class FirstCustomCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        self.contentView.addSubview(customImageView)
-        self.contentView.addSubview(nameLabel)
-        self.backgroundColor = .clear
+    
+        contentView.backgroundColor = .clear
+        contentView.addSubviews(customImageView, nameLabel)
         
         cofigureImage()
         configureNameLabel()
         setNameLabelConstraints()
         setImageConstraints()
-        
-      
-        
+    
     }
     
     required init?(coder: NSCoder) {
@@ -44,7 +41,7 @@ class FirstCustomCell: UITableViewCell {
         nameLabel.text = model.name
     }
     
-    func cofigureImage(){
+    func cofigureImage() {
         customImageView.layer.cornerRadius = 10
         customImageView.clipsToBounds = true
     }
@@ -57,23 +54,20 @@ class FirstCustomCell: UITableViewCell {
     }
 
     func setImageConstraints() {
-        customImageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            customImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            customImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
-            customImageView.heightAnchor.constraint(equalToConstant: 30),
-            customImageView.widthAnchor.constraint(equalTo: customImageView.heightAnchor, multiplier: 16/9)
-        ])
+        customImageView.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.leading.equalToSuperview().offset(12)
+            make.height.equalTo(30)
+            make.width.equalTo(customImageView.snp.height).multipliedBy(16/9)
+        }
     }
 
     func setNameLabelConstraints() {
         nameLabel.backgroundColor = .green
-        nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            nameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
-            nameLabel.leadingAnchor.constraint(equalTo: customImageView.trailingAnchor, constant: 20),
-            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12)
-        ])
+        nameLabel.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview().inset(10)
+            make.leading.equalTo(customImageView.snp.trailing).offset(20)
+            make.trailing.equalToSuperview().offset(-12)
+        }
     }
 }

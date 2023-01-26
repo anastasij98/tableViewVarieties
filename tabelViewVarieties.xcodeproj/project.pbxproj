@@ -23,7 +23,6 @@
 		4783487E296EF60B008B5490 /* PhoneBookTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4783487D296EF60B008B5490 /* PhoneBookTableViewController.swift */; };
 		47834880296EF69D008B5490 /* HogwartsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4783487F296EF69D008B5490 /* HogwartsTableViewController.swift */; };
 		47834882296EF8C0008B5490 /* WildBerriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47834881296EF8C0008B5490 /* WildBerriesTableViewController.swift */; };
-		47895606297D9D1900435913 /* ExampleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47895605297D9D1900435913 /* ExampleVC.swift */; };
 		478CB6B42971EC010037ED2B /* friendsStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478CB6B32971EC010037ED2B /* friendsStruct.swift */; };
 		478CB6B62972B0B00037ED2B /* WizardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478CB6B52972B0B00037ED2B /* WizardsViewController.swift */; };
 		478CB6B82972B11F0037ED2B /* wizards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478CB6B72972B11F0037ED2B /* wizards.swift */; };
@@ -56,7 +55,6 @@
 		4783487D296EF60B008B5490 /* PhoneBookTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneBookTableViewController.swift; sourceTree = "<group>"; };
 		4783487F296EF69D008B5490 /* HogwartsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HogwartsTableViewController.swift; sourceTree = "<group>"; };
 		47834881296EF8C0008B5490 /* WildBerriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WildBerriesTableViewController.swift; sourceTree = "<group>"; };
-		47895605297D9D1900435913 /* ExampleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleVC.swift; sourceTree = "<group>"; };
 		478CB6B32971EC010037ED2B /* friendsStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = friendsStruct.swift; sourceTree = "<group>"; };
 		478CB6B52972B0B00037ED2B /* WizardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardsViewController.swift; sourceTree = "<group>"; };
 		478CB6B72972B11F0037ED2B /* wizards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wizards.swift; sourceTree = "<group>"; };
@@ -158,7 +156,6 @@
 				479E9E2029755E6F001D1983 /* firstCustomCell.swift */,
 				476D5FBA2976F33600D1AA72 /* secondCustomCell.swift */,
 				470F85FB2977185100478B1E /* thirdCustomCell.swift */,
-				47895605297D9D1900435913 /* ExampleVC.swift */,
 				477B4B5529789C2000731DAD /* ImageCustomCell.swift */,
 				477B4B57297B220F00731DAD /* LastCustomCell.swift */,
 				476D9EE2297CB0AC0036C949 /* ImageCell.swift */,
@@ -308,7 +305,6 @@
 				477B4B58297B220F00731DAD /* LastCustomCell.swift in Sources */,
 				47834868296EDD25008B5490 /* AppDelegate.swift in Sources */,
 				470F85FC2977185100478B1E /* thirdCustomCell.swift in Sources */,
-				47895606297D9D1900435913 /* ExampleVC.swift in Sources */,
 				478CB6B42971EC010037ED2B /* friendsStruct.swift in Sources */,
 				478CB6BE2972CA240037ED2B /* SlytherinWizardsTableViewController.swift in Sources */,
 				4783487E296EF60B008B5490 /* PhoneBookTableViewController.swift in Sources */,

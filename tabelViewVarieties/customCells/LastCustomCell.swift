@@ -9,6 +9,11 @@ import Foundation
 import UIKit
 import SnapKit
 
+struct LastCustomCellModel {
+    var productImage: UIImage?
+    var productName: String?
+}
+
 class LastCustomCell: UITableViewCell {
     
     var productImage = UIImageView()
@@ -22,61 +27,51 @@ class LastCustomCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-//        self.addSubview(productImage)
-//        self.addSubview(nameLabel)
-//        self.addSubview(quantityLabel)
-//        self.contentView.addSubview(customStepper)
-        
         contentView.addSubviews(productImage, nameLabel, quantityLabel, customStepper)
         
         createProductImage()
         createNameLabel()
         createMinusButton()
         createQuantityLabel()
-//        createPlusButton()
-        
+        createPlusButton()
         createStepper()
-        
     }
-        
-    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setupCell(model: LastCustomCellModel) {
+        productImage.image = model.productImage
+        nameLabel.text = model.productName
+    }
     
-    func createProductImage(){
-        productImage.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            productImage.heightAnchor.constraint(equalToConstant: 20),
-            productImage.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            productImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5),
-            productImage.widthAnchor.constraint(equalToConstant: 100)
-        ])
-        
+    func createProductImage() {
+        productImage.snp.makeConstraints { make in
+            make.height.equalTo(20)
+            make.width.equalTo(80)
+            make.centerY.equalTo(self.snp.centerY)
+            make.leading.equalTo(contentView.snp.leading).offset(5)
+        }
         productImage.contentMode = .redraw
     }
    
-    func createNameLabel(){
-        nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            nameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
-            nameLabel.leadingAnchor.constraint(equalTo: productImage.trailingAnchor, constant: 15),
-            nameLabel.widthAnchor.constraint(equalToConstant: 100)
-        ])
+    func createNameLabel() {
+        nameLabel.snp.makeConstraints { make in
+            make.top.bottom.equalTo(contentView).inset(10)
+            make.leading.equalTo(productImage.snp.trailing).offset(15)
+            make.width.equalTo(80)
+        }
     }
     
-    func createMinusButton(){
+    func createMinusButton() {
         contentView.addSubview(minusButton)
-        minusButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            minusButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            minusButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
-            minusButton.leadingAnchor.constraint(equalTo: nameLabel.trailingAnchor, constant: 10),
-            minusButton.widthAnchor.constraint(equalToConstant: 20)
-        ])
+        
+        minusButton.snp.makeConstraints { make in
+            make.top.bottom.equalTo(contentView).inset(10)
+            make.leading.equalTo(nameLabel.snp.trailing).offset(10)
+            make.width.equalTo(20)
+        }
         
         minusButton.setTitle("-", for: .normal)
         minusButton.setTitleColor(.black, for: .normal)
@@ -85,29 +80,27 @@ class LastCustomCell: UITableViewCell {
         
     }
     
-    func createQuantityLabel(){
-        quantityLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            quantityLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            quantityLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
-            quantityLabel.leadingAnchor.constraint(equalTo: minusButton.trailingAnchor, constant: 10),
-            quantityLabel.widthAnchor.constraint(equalToConstant: 25)
-        ])
+    func createQuantityLabel() {
+        quantityLabel.snp.makeConstraints { make in
+            make.top.bottom.equalTo(contentView).inset(10)
+            make.leading.equalTo(minusButton.snp.trailing).offset(10)
+            make.width.equalTo(25)
+        }
+        
         quantityLabel.text = "\(numberOfProduct)"
         quantityLabel.textAlignment = .center
         quantityLabel.layer.borderColor = UIColor.black.cgColor
         quantityLabel.layer.borderWidth = 2
     }
     
-    func createPlusButton(){
+    func createPlusButton() {
         contentView.addSubview(plusButton)
-        plusButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            plusButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            plusButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
-            plusButton.leadingAnchor.constraint(equalTo: quantityLabel.trailingAnchor, constant: 10),
-            plusButton.widthAnchor.constraint(equalToConstant: 20)
-        ])
+
+        plusButton.snp.makeConstraints { make in
+            make.top.bottom.equalTo(contentView).inset(10)
+            make.leading.equalTo(quantityLabel.snp.trailing).offset(10)
+            make.width.equalTo(20)
+        }
         
         plusButton.setTitle("+", for: .normal)
         plusButton.setTitleColor(.black, for: .normal)
@@ -116,41 +109,29 @@ class LastCustomCell: UITableViewCell {
     }
     
     
-    @objc func addSomeProduct(_ sender: UIButton){
+    @objc func addSomeProduct(_ sender: UIButton) {
         numberOfProduct += 1
         quantityLabel.text = "\(numberOfProduct)"
     }
     
-    @objc func deleteSomeProduct(_ sender: UIButton){
+    @objc func deleteSomeProduct(_ sender: UIButton) {
         if numberOfProduct > 0 {
             numberOfProduct -= 1
-            
-        } else{
+        } else {
             numberOfProduct = 0
         }
-        
         quantityLabel.text = "\(numberOfProduct)"
     }
     
     func createStepper() {
-        print("fxkc")
-//        customStepper.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            customStepper.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
-//            customStepper.leadingAnchor.constraint(equalTo: quantityLabel.trailingAnchor, constant: 2),
-//            customStepper.widthAnchor.constraint(equalToConstant: 50)
-//        ])
         customStepper.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(5)
-            make.leading.equalTo(quantityLabel.snp.trailing).offset(2)
+            make.centerY.equalToSuperview()
+            make.leading.equalTo(plusButton.snp.trailing).offset(2)
             make.width.equalTo(100)
         }
-        
-        
         customStepper.minimumValue = 0.0
         customStepper.maximumValue = 10.0
-        
-        
+        customStepper.autorepeat = true
         customStepper.addTarget(self, action: #selector(tappedStepper), for: .valueChanged)
     }
 

@@ -8,34 +8,41 @@
 import Foundation
 import UIKit
 
-class ImageCustomCell: UITableViewCell{
+struct ImageCustomCellModel {
+    var backgroundImageModel: UIImage?
+}
+ 
+class ImageCustomCell: UITableViewCell {
     
     var backgroundImage = UIImageView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.contentView.addSubview(backgroundImage)
+        createLayers()
         createBackground()
-        self.backgroundColor = .clear
-        self.layer.borderColor = CGColor.init(red: 0, green: 80, blue: 50, alpha: 1)
-        self.layer.borderWidth = 2
-        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setupCell(model: ImageCustomCellModel) {
+        backgroundImage.image = model.backgroundImageModel
+    }
+    
+    func createLayers() {
+        contentView.layer.borderColor = UIColor.green.cgColor
+        contentView.layer.borderWidth = 2
+        contentView.backgroundColor = .clear
+    }
+    
     func createBackground() {
+        contentView.addSubview(backgroundImage)
+        
         backgroundImage.layer.cornerRadius = 10
         backgroundImage.clipsToBounds = true
-       
-        backgroundImage.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            backgroundImage.topAnchor.constraint(equalTo: self.topAnchor),
-            backgroundImage.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            backgroundImage.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            backgroundImage.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-        ])
+        backgroundImage.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
 }

@@ -7,8 +7,18 @@
 
 import UIKit
 
-class RandomCellsViewController: UITableViewController {
+protocol CustomCellDelegate: AnyObject{
+    func onCellButtonTouched()
+}
 
+class RandomCellsViewController: UITableViewController, CustomCellDelegate {
+    
+    func onCellButtonTouched() {
+        let nextVC = WildBerriesTableViewController()
+        navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
+    
     
     var first = "firstCustomCell"
     var second = "secondCustomCell"
@@ -23,6 +33,7 @@ class RandomCellsViewController: UITableViewController {
     var longGesture = UILongPressGestureRecognizer()
     
     override func viewDidLoad() {
+        
         createTable()
         
         longGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPress))
@@ -48,9 +59,6 @@ class RandomCellsViewController: UITableViewController {
         tableView.register(ImageCustomCell.self, forCellReuseIdentifier: imageCell)
         tableView.register(LastCustomCell.self, forCellReuseIdentifier: lastCell)
         tableView.register(ImageCell.self, forCellReuseIdentifier: imgCell)
-        
-//        tableView.delegate = self
-//        tableView.dataSource = self
         tableView.backgroundColor = .lightGray
     
     }
@@ -61,54 +69,55 @@ class RandomCellsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.row == 0 {
-        
+        switch indexPath.row {
+            
+        case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: first, for: indexPath) as? FirstCustomCell else {
                 return UITableViewCell()
             }
-      
+
             let model = FirstCustomCellModel(image: UIImage(named: "слиз"),
                                              name: "this is the \((indexPath.row) + 1) cell in tabelView")
             cell.setupCell(model: model)
-            
             return cell
             
-        } else if indexPath.row == 1 {
-            
+        case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: second, for: indexPath) as! SecondCustomCell
             let model = SecondCustomCellModel(firatsImage: UIImage(named: "грифф"),
-                                              secondImage: UIImage(named: "ког"),
-                                              label: "\(indexPath.row)")
-            
+                                                          secondImage: UIImage(named: "ког"),
+                                                          label: "\(indexPath.row)")
             cell.setupCell(model: model)
-    
             return cell
             
-        } else if indexPath.row == 2 {
+        case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: third, for: indexPath) as! ThirdCustomCell
-            
-            cell.customLabel.text = "\((indexPath.row) + 1)"
-            cell.customButton.setTitle("some text", for: .normal)
-
+            let model = ThirdCustomCellModel(customLabelStr: "Cell № \((indexPath.row) + 1)")
+           
+            cell.setupCell(model: model)
+            cell.delegate = self
             return cell
             
-        } else if indexPath.row == 3 {
+        case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: imageCell, for: indexPath) as! ImageCustomCell
-            cell.backgroundImage.image = UIImage(named: "ког")
+            let model = ImageCustomCellModel(backgroundImageModel: UIImage(named: "ког"))
+           
+            cell.setupCell(model: model)
+            return cell
 
-            return cell
-        } else if indexPath.row == 4 {
-            
+        case 4:
+           
             let cell = tableView.dequeueReusableCell(withIdentifier: lastCell, for: indexPath) as! LastCustomCell
-            
-            cell.productImage.image = UIImage(named: "coke")
-            cell.nameLabel.text = "coca cola"
+            let model = LastCustomCellModel(productImage: UIImage(named: "coke"), productName: "coca cola")
+           
+            cell.setupCell(model: model)
             return cell
-        } else {
-            
+        
+        case 5:
             let cell = tableView.dequeueReusableCell(withIdentifier: imgCell, for: indexPath) as! ImageCell
-            
             return cell
+           
+        default:
+            return UITableViewCell()
         }
     }
     
@@ -140,6 +149,7 @@ class RandomCellsViewController: UITableViewController {
         let swipeConfiguration = UISwipeActionsConfiguration(actions: [add])
         return swipeConfiguration
     }
+   
 }
 
 
